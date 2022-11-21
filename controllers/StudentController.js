@@ -1,8 +1,15 @@
-const { Student } = require('../models')
+const { Student, StudentCourses } = require('../models')
 
 const GetStudent = async (req, res) => {
   try {
-    const student = await Student.findByPk(req.params.student_id)
+    const student = await Student.findByPk(req.params.student_id, {
+      include: [
+        {
+          model: StudentCourses,
+          as: 'course'
+        }
+      ]
+    })
     res.send(student)
   } catch (error) {
     throw error
