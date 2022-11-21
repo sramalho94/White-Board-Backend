@@ -1,5 +1,4 @@
 const { Grade } = require('../models')
-const middleware = require('../middleware')
 
 const GetGrade = async (req, res) => {
   try {

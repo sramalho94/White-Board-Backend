@@ -1,5 +1,4 @@
 const { Student } = require('../models')
-const middleware = require('../middleware')
 
 const GetStudent = async (req, res) => {
   try {

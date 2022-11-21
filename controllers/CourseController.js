@@ -1,5 +1,4 @@
 const { Course } = require('../models')
-const middleware = require('../middleware')
 
 const GetCourse = async (req, res) => {
   try {
