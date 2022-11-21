@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   Student.init(
     {
       name: DataTypes.STRING,
-      email: DataTypes.STRING
+      email: DataTypes.STRING,
+      passwordDigest: DataTypes.STRING
     },
     {
       sequelize,

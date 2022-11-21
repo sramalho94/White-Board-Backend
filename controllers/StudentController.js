@@ -19,19 +19,7 @@ const GetAllStudents = async (req, res) => {
   }
 }
 
-const CreateStudent = async (req, res) => {
-  try {
-    const { name, email, password } = req.body
-    let passwordDigest = await middleware.hashPassword(password)
-    const newStudent = await Student.create({ name, email, passwordDigest })
-    res.send(newStudent)
-  } catch (error) {
-    throw error
-  }
-}
-
 module.exports = {
   GetStudent,
-  GetAllStudents,
-  CreateStudent
+  GetAllStudents
 }

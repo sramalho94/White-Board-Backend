@@ -1,24 +1,27 @@
-const { User } = require('../models')
+const { Student } = require('../models')
 const middleware = require('../middleware')
 
 const Login = async (req, res) => {
   try {
-    const user = await User.findOne({
+    const student = await Student.findOne({
       where: { email: req.body.email },
       raw: true
     })
     if (
-      user &&
-      (await middleware.comparePassword(user.passwordDigest, req.body.password))
+      student &&
+      (await middleware.comparePassword(
+        student.passwordDigest,
+        req.body.password
+      ))
     ) {
       let payload = {
-        id: user.id,
-        email: user.email
+        id: student.id,
+        email: student.email
       }
       let token = middleware.createToken(payload)
-      return res.send({ user: payload, token })
+      return res.send({ student: payload, token })
     }
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized User' })
+    res.status(401).send({ status: 'Error', msg: 'Unauthorized Student' })
   } catch (error) {
     throw error
   }
@@ -28,8 +31,8 @@ const Register = async (req, res) => {
   try {
     const { email, password, name } = req.body
     let passwordDigest = await middleware.hashPassword(password)
-    const user = await User.create({ email, passwordDigest, name })
-    res.send(user)
+    const student = await Student.create({ email, passwordDigest, name })
+    res.send(student)
   } catch (error) {
     throw error
   }
