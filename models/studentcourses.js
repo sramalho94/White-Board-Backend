@@ -36,8 +36,10 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       },
-      grade: DataTypes.INTEGER,
-      allowNull: false
+      grade: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      }
     },
     {
       sequelize,
