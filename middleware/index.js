@@ -53,10 +53,6 @@ const stripToken = (req, res, next) => {
   }
 }
 
-let chris = 'fhdircngig'
-
-hashPassword(chris)
-
 module.exports = {
   stripToken,
   verifyToken,
