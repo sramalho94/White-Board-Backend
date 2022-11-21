@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      StudentCourses.hasOne(models.Grade)
     }
   }
   StudentCourses.init(
@@ -26,6 +26,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: 'courses',
+          key: 'id'
+        }
+      },
+      gradeId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'grades',
           key: 'id'
         }
       }

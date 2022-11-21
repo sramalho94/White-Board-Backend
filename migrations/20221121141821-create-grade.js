@@ -9,27 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      studentId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'students',
-          key: 'id'
-        }
-      },
-      courseId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'courses',
-          key: 'id'
-        }
-      },
       score: {
         type: Sequelize.INTEGER
-      },
-      letter: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
