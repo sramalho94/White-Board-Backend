@@ -9,36 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Grade.belongsTo(models.Student, {
-        foreignKey: 'studentId',
-        as: 'student'
-      })
-      Grade.belongsTo(models.Course, {
-        foreignKey: 'courseId',
+      Grade.belongsTo(models.StudentCourse, {
+        foreignKey: 'gradeId',
         as: 'course'
       })
     }
   }
   Grade.init(
     {
-      studentId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'students',
-          key: 'id'
-        }
-      },
-      courseId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'courses',
-          key: 'id'
-        }
-      },
-      score: DataTypes.INTEGER,
-      letter: DataTypes.STRING
+      score: DataTypes.INTEGER
     },
     {
       sequelize,
