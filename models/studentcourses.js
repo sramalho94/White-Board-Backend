@@ -8,10 +8,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      StudentCourses.hasOne(models.Grade, {
-        foreignKey: 'gradeId',
-        as: 'grade'
-      })
+      // StudentCourses.belongsTo(models.Grade, {
+      //   foreignKey: 'gradeId',
+      //   as: 'grade'
+      // })
+      // StudentCourses.belongsTo(models.Student, {
+      //   foreignKey: 'studentId',
+      //   as: 'student'
+      // })
     }
   }
   StudentCourses.init(
@@ -32,14 +36,8 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       },
-      gradeId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'grades',
-          key: 'id'
-        }
-      }
+      grade: DataTypes.INTEGER,
+      allowNull: false
     },
     {
       sequelize,

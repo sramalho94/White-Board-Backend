@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         as: 'courses',
         through: models.StudentCourses
       })
+      // Student.hasMany(models.StudentCourses, {
+      //   foreignKey: 'studentId',
+      //   as: 'student'
+      // })
     }
   }
   Student.init(
