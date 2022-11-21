@@ -20,6 +20,7 @@
   "homepage": "https://github.com/sramalho94/White-Board-Backend#readme",
   "dependencies": {
     "@ngneat/falso": "^6.2.0",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
