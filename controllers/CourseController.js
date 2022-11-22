@@ -1,4 +1,4 @@
-const { Course } = require('../models')
+const { Course, Student } = require('../models')
 
 const GetCourse = async (req, res) => {
   try {
@@ -27,8 +27,26 @@ const CreateCourse = async (req, res) => {
   }
 }
 
+const GetAllCoursesWithStudents = async (req, res) => {
+  try {
+    const studentCourses = await Course.findAll({
+      where: { id: req.params.id },
+      include: [
+        {
+          model: Student,
+          as: 'students'
+        }
+      ]
+    })
+    res.send(studentCourses)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   GetCourse,
   GetAllCourses,
-  CreateCourse
+  CreateCourse,
+  GetAllCoursesWithStudents
 }
