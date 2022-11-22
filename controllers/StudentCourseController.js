@@ -18,8 +18,16 @@ const GetAllStudentCourses = async (req, res) => {
     throw error
   }
 }
-
+const createStudentCourse = async (req, res) => {
+  try {
+    const newStudentCourse = await StudentCourses.create(req.body)
+    res.send(newStudentCourse)
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
   GetStudentCourse,
-  GetAllStudentCourses
+  GetAllStudentCourses,
+  createStudentCourse
 }
