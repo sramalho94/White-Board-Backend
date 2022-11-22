@@ -18,24 +18,8 @@ const GetAllStudentCourses = async (req, res) => {
     throw error
   }
 }
-const GetStudentCoursesByCourse = async (req, res) => {
-  try {
-    const studentCourses = await StudentCourses.findAll({
-      where: { courseId: req.params.id },
-      include: [
-        {
-          model: 'students'
-        }
-      ]
-    })
-    res.send(studentCourses)
-  } catch (error) {
-    throw error
-  }
-}
 
 module.exports = {
   GetStudentCourse,
-  GetAllStudentCourses,
-  GetStudentCoursesByCourse
+  GetAllStudentCourses
 }
