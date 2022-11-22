@@ -30,7 +30,6 @@ const CreateCourse = async (req, res) => {
 const GetAllCoursesWithStudents = async (req, res) => {
   try {
     const studentCourses = await Course.findAll({
-      where: { id: req.params.id },
       include: [
         {
           model: Student,
